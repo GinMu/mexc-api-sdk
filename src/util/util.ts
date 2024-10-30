@@ -2,7 +2,7 @@ import request from "sync-request";
 
 const createRequest = (config: any) => {
     const { baseURL, method, url, headers } = config
-    return request(method, `${baseURL}${url}`, { headers })
+    return request(method, `${baseURL}${url}`, { headers, timeout: 5000 })
 }
 
 const stringifyKeyValuePair = ([key, value]: any[]) => {
@@ -10,7 +10,7 @@ const stringifyKeyValuePair = ([key, value]: any[]) => {
 }
 
 const removeEmptyValue = (obj: any) => {
-    if(!(obj instanceof Object)) return {}
+    if (!(obj instanceof Object)) return {}
     Object.keys(obj).forEach(key => isEmptyValue(obj[key]) && delete obj[key])
     return obj
 }
@@ -29,19 +29,19 @@ const isEmptyValue = (input: any) => {
 const buildQueryString = (params: any) => {
     if (!params) return ''
     return Object.entries(params)
-      .map(stringifyKeyValuePair)
-      .join('&')
+        .map(stringifyKeyValuePair)
+        .join('&')
 }
 
 const fromatData = (datas: any): any => {
-    if(Array.isArray(datas)) {
+    if (Array.isArray(datas)) {
         return datas.map((data: any) => {
             return fromatData(data)
         })
     } else if (typeof datas === "object" && datas !== null) {
-            const newObj: any = {}
-            Object.entries(datas).map(([key, value]: any[]) => newObj[key] = fromatData(value))
-            return newObj;
+        const newObj: any = {}
+        Object.entries(datas).map(([key, value]: any[]) => newObj[key] = fromatData(value))
+        return newObj;
     } else {
         return (datas === undefined || datas === null) ? "" : datas
     }
