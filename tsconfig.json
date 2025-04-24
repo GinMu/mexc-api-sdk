@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2018",
+    "lib": [
+      "ES2018"
+    ],
+    "outDir": "lib",
+    "baseUrl": ".",
+    "module": "Node16",
+    "noUnusedLocals": true,
+    "declaration": true,
+    "noUnusedParameters": true,
+    "experimentalDecorators": true,
+    "sourceMap": false,
+    "esModuleInterop": true,
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "src/**/*"
+  ]
+}

@@ -1,4 +1,3 @@
-tsconfig.json
 .jsii
 .DS_Store
 
@@ -123,3 +122,4 @@ n
 
 # Custom
 .idea/
+lib
