@@ -2,10 +2,10 @@
   "name": "mexc-sdk",
   "version": "1.0.0",
   "description": "mexc sdk",
-  "main": "lib/index.ts",
+  "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc --skipLibCheck"
   },
   "repository": {
     "type": "git",
